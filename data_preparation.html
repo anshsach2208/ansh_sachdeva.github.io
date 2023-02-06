@@ -41,8 +41,8 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="introduction.html">Introduction</a></li>
-							<li><a href="data_preparation.html">Data Preparation</a></li>
-							<li><a href="EDA.html">EDA</a></li>
+							<li><a href="data_preparation.html">Data Collection and Preparation</a></li>
+							<li><a href="EDA.html">Exploratory Data Analysis</a></li>
 							<li><a href="model_exp.html">Model Explanation</a></li>
 							<li><a href="conclusion.html">Learning and Outcomes</a></li>
 						</ul>
@@ -51,9 +51,47 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Data Preparation</h1>
+							<h1>Data Collection and Preparation</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-
+							<p align="justify">
+							As we all know Data collection and preparation are critical steps in the 
+							data analysis process as they determine the quality and accuracy of the results obtained.
+							It involves gathering data from various sources such as surveys, experiments, databases, or publicly available datasets and then cleaning, transforming, 
+							and integrating the data to make it ready for analysis. 
+						</p>
+						<p align="justify"></p>
+							In my project, the data is collected from Kaggle using Kaggle api.<br>
+							<a href="https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions?select=credit_card_transactions-ibm_v2.csv">
+							https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions?select=credit_card_transactions-ibm_v2.csv</a>
+							</p>
+								
+							<p align="justify">
+							<img src="images/api.jpeg" width="800" height="200" style="margin:30px 10px"></p>
+							<a href="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?datasetId=310&sortBy=voteCount">
+								https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?datasetId=310&sortBy=voteCount
+							</a>
+							
+							<p align="justify">
+								<img src="images/api2.jpeg" width="800" height="150" style="margin:30px 10px"></p>
+						<p align="justify">
+							The collected data must be checked for missing or incorrect values, outliers, and inconsistencies, and appropriate 
+							steps should be taken to address these issues. The goal is to create a clean and well-structured dataset that accurately 
+							represents the underlying phenomenon being studied, making it easier to perform subsequent analysis.
+						</p>
+						A glimpse of the raw data can be seen here
+						<p align="justify">
+							<img src="images/dataset.jpeg" width="800" height="200" style="margin:30px 10px"></p>	
+						Data types of the columns in our dataset
+						<p align="justify">
+							<img src="images/info.jpeg" width="250" height="500" style="margin:30px 10px"></p>
+						This is the clean data after doing all the neccessary steps such as detecting any missing values,
+						outliers, transformation etc. 
+						<p align="justify">
+							<img src="images/clean_data.jpeg" width="800" height="200" style="margin:30px 10px"></p>	
+						Detail code and methods can be seen here <br> 
+						<a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/data_collection.ipynb">
+							Click Here !
+							</a>				
 						</div>
 					</div>
 
