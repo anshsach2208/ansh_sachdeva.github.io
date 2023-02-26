@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Introduction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" />Fradulent Credit Card Transactions</span><span class="title"></span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="introduction.html">Introduction</a></li>
+							<li><a href="data_preparation.html">Data Preparation</a></li>
+							<li><a href="EDA.html">Exploratory Data Analysis</a></li>
+							<li><a href="model_exp.html">Model Explanation</a></li>
+							<li><a href="conclusion.html">Learning and Outcomes</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Clustering</h1>
+                            <h3>Overview</h3>
+							<p align="justify">
+                                Clustering is a process of grouping similar data points together based on their characteristics or attributes. 
+                                The goal of clustering is to identify patterns in the data and group similar data points together, while keeping 
+                                dissimilar data points apart.
+                                <br>
+                                In clustering, data points are grouped into clusters based on their similarity to other data points within the same cluster.
+                                The clustering algorithm tries to find the optimal number of clusters that best represents the underlying patterns in the data.
+                                <br>
+
+                                There are different types of clustering algorithms : 
+                                <ol> 
+                                <li>Hierarchical clustering</li>
+                                <li>K-means clustering</li>
+                                <li>Density-based clustering</li>  
+                                <br>
+                                These algorithms differ in the way they group data points together and in the criteria they use to determine the similarity between 
+                                data points.
+							</p>
+							<h3>Partitional Clustering</h3>
+							   <p align="justify">
+								Partitional clustering is a type of clustering algorithm that divides a dataset into non-overlapping clusters, 
+                                where each data point belongs to only one cluster. In partitional clustering, the number of clusters is typically 
+                                predefined, and the algorithm tries to group the data points into the specified number of clusters based on their 
+                                similarity.
+                                <br>
+								The most popular partitional clustering algorithm is k-means clustering, which works by randomly selecting k initial
+                                 cluster centers and then iteratively refining the clusters until convergence. The algorithm assigns each data point 
+                                 to the nearest cluster center based on some similarity measure, usually the Euclidean distance between data points 
+                                 and cluster centers.
+                                 <br>
+                                 We have used k-means to group similar transactions together, where transactions in the same cluster 
+                                 are more similar to each other than to transactions in other clusters.
+                                 
+							</p>
+                            <h3>Hierarchical Clustering</h3>
+                            <p align="justify">
+                                Hierarchical clustering is a type of clustering algorithm that groups data points into a hierarchical structure of clusters,
+                                where clusters at one level are nested within clusters at higher levels. 
+                                In hierarchical clustering, there are two main approaches: Agglomerative and Divisive.
+                                <br>
+                                Agglomerative hierarchical clustering starts with each data point as its own cluster and iteratively merges the 
+                                closest pairs of clusters until only one cluster is left. Divisive hierarchical clustering starts with all data points 
+                                in one cluster and recursively splits the cluster into smaller clusters based on some criterion until each data point 
+                                is in its own cluster.
+                             <br>
+                              We have used hierarchical clustering for this data on the columns as the amount of data is huge 
+                              by taking in columns we will identify relationships between the columns which will provide how 
+                              connected columns are (features - v1:v28 for our dataset)
+                              
+                         </p>
+
+                         <h3>Difference b/w Partitional & Hierarchical</h3>
+                         <p align="justify">
+                            In hierarchical clustering, data points are grouped into a hierarchical structure of clusters, where each cluster is 
+                            nested within larger clusters. This structure is represented by a dendrogram, which shows the relationships between 
+                            the clusters. Hierarchical clustering does not require a predefined number of clusters
+                             <br>
+                             In partitional clustering, data points are grouped into non-overlapping clusters, where each data point belongs to only 
+                             one cluster. The number of clusters is typically predefined, and the algorithm tries to group the data points into the 
+                             specified number of clusters based on their similarity.                        
+                         </p>
+                         <h3>Data Preparation</h3>
+                         <p align="justify">
+                         <ol>
+                             <li>Data Cleaning: To begin with clustering we must have data which is numerical and unlabeled, then we remove or impute missing values, 
+                                remove outliers, and correct any errors in the data. The data should be cleaned to ensure that the clustering process is not 
+                                affected by noise or invalid data. </li>
+                            <li> Feature Scaling: Scale the features so that they have similar ranges and magnitudes. This helps to ensure that
+                                 no one feature dominates the clustering process, and that each feature contributes equally to the final clusters. Common scaling
+                                 techniques include standardization and normalization. We have used standardization in our dataset</li>
+                            <li>Dimensionality reduction: Our dataset has a large number of features (v1:v28), so to reduce the dimensionality of the data. 
+                                Techniques such as principal component analysis (PCA) has been used  
+                                to reduce the number of features while preserving the important patterns in the data.</li>     
+                         </ol>    
+                         <img src="images/clustering-data.jpeg" width="800" height="200" style="margin:30px 10px"></p>      
+                         
+                         The data does not have any missing values, so we will move ahead and drop label column, and proceed to transforming our data
+                         using StandardScaler 
+                         <img src="images/clustering-transformed.jpeg" width="800" height="200" style="margin:30px 10px"></p>  
+
+                         Dimensionality Reduction will help in reducing the features to the most important ones explaining more variability in the dataset
+                         <img src="images/clustering-pca.jpeg" width="800" height="200" style="margin:30px 10px"></p> 
+                         </p>
+                         <h3>Code</h3>
+                         <p align="justify">
+                            You can find code for the Clustering techniques covered in this space:
+                             <ul>  
+                                 
+                        <li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/Clustering_analysis.ipynb">
+                                    Clustering</li>
+                        </a>
+                        <li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/hierarchal_clustering.r">
+                            Hcust
+                    </a></li>
+                </ul>
+                </p>
+                <h3>Results</h3>
+                <p align="justify">       
+                       After dimensionality reduction, here is the scatter plot between two important principal component having the information
+                       of fraudulent transaction and legitimate transaction.<br>
+                       Yellow Color - Fraudulent Transactions<br>
+                       Purple Color - Legitimate Transaction
+                       <br>
+                       <img src="images/clustering1.png" width="700" height="500" style="margin:30px 10px"></p> 
+                       
+                       Fraudulent transaction tend to have lower values for both first and second principal componentand can be separated easily
+                       from the legit transactions.
+                     <br>
+                     <br>
+                     <h3>Silhoutte Score</h3>
+                     Further, below is the plot evaluating silhoutte score for the standardised dataset. 
+                     <img src="images/silhoutte.png" width="700" height="500" style="margin:30px 10px"></p> 
+                     From the above graph, optimal value for k can be 4, and we will test different values of k on our dataset.<br>
+                    <br>
+                     <h3>Elbow Method</h3>
+                     Elbow Method does not provide any valuable information in this case
+                     <img src="images/elbow_method.png" width="700" height="500" style="margin:30px 10px"></p> 
+                    <br><br>
+                    <h3>K-Means</h3>
+                    Here are the results obtained by keeping different values for k, from the below plots k=4 does a great job, though
+                    it hasn't done a great job in identifying clear clusters as the data is very densed around 0.
+                    <br>
+                    <img src="images/kmeans_4.png" width="700" height="500" style="margin:30px 10px"></p> 
+                    <img src="images/kmeans_3.png" width="700" height="500" style="margin:30px 10px"></p> 
+                    <img src="images/kmeans_2.png" width="700" height="500" style="margin:30px 10px"></p> 
+                    
+                    To conclude the results obtained from k-means, k=4 had a greater silhoutte evaulation score and 
+                    does a great job in identifying the clusters.
+
+                         </p>    
+                     <h3>Hierarchical Clustering</h3>   
+                     <p align="justify"> 
+                       Due to the fact that this is a large dataset here we are performing heirarchical clustering with cosine similarity on columns rendered 
+                       a dendogram which classified all the similar columns relationship into one cluster and vice versa going above (Agglomerative).
+                       <br><img src="images/Dendogram-ward.jpeg" width="700" height="500" style="margin:30px 10px"></p>  
+                       
+                        From the above dendogram, it separates into 4 clusters, which is same result we got from k-means for an optimal value of k=4
+                    </p>
+                    <h3>Conclusion</h3> 
+                    <p align="justify"> 
+                        Applying both k-means and hierarchical clustering algorithms to the dataset, we got the results that coincides with 
+                        each other. This mean that both algorithms produced similar or identical cluster assignments for the data points. Though, looking
+                        at the clusters generated by k-means due to dense nature with lot of data points the results are not accurate.
+                        And also to identify the nature of columns and their relationship will help in future work.
+                        </p>
+						</div>
+						<br>
+						<br>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li> -->
+									<!-- <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+									<li><a href="https://www.instagram.com/ansh_sach2208/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
+									<li><a href="https://github.com/anshsach2208" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
+									<!-- <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li> -->
+									<li><a href="mailto:anshsachdeva748@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+										<li><a href="https://www.linkedin.com/in/anshsachdeva98/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>CSCI 5622-073 - Machine Learning</li><li>Fraudulent Credit Card Transaction By Ansh Sachdeva</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
