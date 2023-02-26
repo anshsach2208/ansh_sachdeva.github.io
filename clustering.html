@@ -61,10 +61,27 @@
                                 <ol> 
                                 <li>Hierarchical clustering</li>
                                 <li>K-means clustering</li>
-                                <li>Density-based clustering</li>  
-                                <br>
+                                <li>Density-based clustering</li> 
+                                </ol> 
+                            
                                 These algorithms differ in the way they group data points together and in the criteria they use to determine the similarity between 
                                 data points.
+                                <br><br>
+                                <b>Euclidean distance</b> is a common distance metric used in k-means clustering to measure the similarity between data points. 
+                                In k-means clustering, the goal is to partition the data into k clusters, where each cluster contains data points that are similar to each other.
+                                For each data point in the dataset, we calculate its distance to each of the k cluster centers using the Euclidean distance formula.
+                               <br> <img src="images/Centroids.png" width="400" height="200" style="margin:30px 10px"></p>  
+                                
+                                <br><br>
+                                <b>Cosine similarity</b>, measures the cosine of the angle between two vectors and is scale-invariant.
+                                To calculate the cosine similarity between a data point and a centroid, we treat each data point and centroid as a vector of features.
+                                The similarity between the two vectors is then calculated as the dot product of the vectors divided by the product of their magnitudes. 
+                                <br><img src="images/cosine_sim.jpeg" width="400" height="200" style="margin:30px 10px"></p>
+                                <br><br>
+                                <b>Manhattan distance</b> is an alternative distance metric that can be used in k-means clustering instead of Euclidean distance.
+                                For each data point in the dataset, we calculate its distance to each of the k cluster centers using the Manhattan distance formula.
+                                Based on the distances, we assign each data point to the nearest cluster center, creating k clusters.
+                                <br><img src="images/manhattan_distance.jpeg" width="400" height="200" style="margin:30px 10px"></p>
 							</p>
 							<h3>Partitional Clustering</h3>
 							   <p align="justify">
