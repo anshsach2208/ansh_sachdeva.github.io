@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Association Rule Mining</title>
@@ -22,7 +17,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">CSCI - 5562</span>
+									<span class="symbol"><img src="images/logo.svg" alt="" />Fradulent Credit Card Transactions</span><span class="title"></span>
 								</a>
 
 							<!-- Nav -->
@@ -42,76 +37,225 @@
 							<li><a href="index.html">Home</a></li>
 							<li><a href="introduction.html">Introduction</a></li>
 							<li><a href="data_preparation.html">Data Preparation</a></li>
-							<li><a href="EDA.html">EDA</a></li>
-							<li><a href="models.html">ML Models</a></li>
-							<li><a href="conclusion.html">Conclusions</a></li>
-							<li><a href="references.html">References</a></li>
+							<li><a href="EDA.html">Exploratory Data Analysis</a></li>
+							<li><a href="model_exp.html">Model Explanation</a></li>
+							<li><a href="conclusion.html">Learning and Outcomes</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<header>
-								<h1>Association Rule Mining (ARM)<br/>
-							</header>
-                            <div style="margin:auto">
-                            <h2>Overview</h2>
-                            <p>ARM is a rule-based machine leaning method for discovering interesting relations between variables in large databases. Following are the building blocks of ARM</p>
+							<h1>Association Rule Mining(ARM)</h1>
+                            <h3>Overview</h3>
+							<p align="justify">
+								Association Rule Mining is a data mining technique used to discover the relationships between variables in 
+								large datasets. Specifically, it involves identifying patterns or associations among items in a dataset, 
+								and extracting rules that describe how these items are related to each other.
+								<br><br>
 
-                                <li>Support</li>
-                                <li>Lift</li>
-                                <li>Confidence</li>
-							<br>
-                            <img src="images/s_c_l.png" alt="" width="500" height="200" style="margin:50px 50px"/>
-							<br>
-							<h3>What are rules?</h3>
-							<p>Association rules are "if-then" statements, that help to show the probability of relationships between data items, within large data sets in various types of databases. These rules are built based upon the values of support, confidence and lift:</p>
-                            <p>SUPPORT: Within a list of transactions, how many transactions contain item A, so it is just the probability of item A occurring, which we can represent as below. Statistically speaking, it is a frequentist's estimate of the probability.</p>
-                            <p>CONFIDENCE: Out of the transactions that contains item A, how many also contains item B. The bigger the overlap, the greater the confidence we have that people who are buying item A also buys item B</p>
-                            <p>LIFT: The ratio between Confidence of A and Support B. This measure is used to determine if item A and B are independent or not</p>
+								The process of association rule mining typically involves three steps: 
+								 <ul>
+								<li><b>Data preprocessing</b>: In the data preprocessing step, the dataset is cleaned, filtered, and transformed into a 
+									format suitable for analysis</li> 
+								<li><b>Rule generation</b>:  In the rule generation step, frequent itemsets are identified, and association 
+									rules are generated based on these itemsets</li>
+								<li><b>Rule evaluation</b>: In the rule evaluation step, the generated rules are
+									evaluated based on metrics such as support, confidence, and lift to determine their usefulness and relevance.</li> 
+								 </ul>
 
-                            <h3>Apriori</h3>
-                            <p>It is an algorithm used to find frequent patterns. It can be described using a few steps</p>
-                            <li>Compute support for each individual item</li>
-                            <li>Remove sets with support less than a threshold value</li>
-                            <li>The next step is to do the same analysis, but now using pairs of products instead of individual products</li>
-                            <br>
-                            <p>Using the step number 2, we are able to prune the significant number of frequent items that have a support less than a threshold value. This will help us to not calculate into those frequent supersets that will surely have a lower support than the current ones. This fact is true given that the support of sets becomes smaller as we add more items.</p>
-							<img src="images/apriori.png" alt="" width="500" height="300" style="margin:50px 50px"/>
-							<br>
+								 <img src="images/scl.pbm" width="400" height="300" style="margin:30px 10px">
+								 <br>
+								</p>
+								 <h3>Rules in ARM</h3>
+								 <p align="justify">
+									A rule is an implication of the form "if A then B", where A and B are itemsets. A rule represents a relationship 
+									between the presence of items in a dataset, and can be used to make predictions about which items are likely to co-occur.
+									The strength and usefulness of a rule can be evaluated using metrics such as support, confidence, and lift
+
+									<ul>
+										<li> <b>Support</b>: The support of an itemset is the frequency with which it appears in the dataset. It measures the proportion 
+											of transactions in the dataset that contain the itemset.The higher the support, the more frequently the itemset occurs 
+											in the dataset</li>
+										<li> <b>Confidence</b>: The confidence of a rule is the conditional probability of the consequent given the antecedent. It measures 
+											how often the rule is true, given that the antecedent is true. A high confidence value indicates that the rule is 
+											reliable and accurate</li>
+										<li><b>Lift</b>: The lift of a rule measures the strength of the association between the antecedent and the consequent, relative 
+											to what would be expected if they were independent. A lift value greater than 1 indicates a positive association between
+											 the antecedent and the consequent, while a lift value less than 1 indicates a negative association.</li>
+									</ul>
+								 </p>
+								 <h3>Apriori</h3>
+								 <p align="justify">
+									Apriori algorithm is used to find frequent itemsets and generate association rules from a dataset. The algorithm is based on 
+									the observation that any subset of a frequent itemset must also be frequent.
+
+									The Apriori algorithm works in two main steps:
+									<ol>
+										<li>
+											Generating frequent itemsets: 
+											<ul>
+												<li>The algorithm starts by finding all the frequent itemsets in the dataset (i.e., items 
+													that appear above a minimum support threshold).</li>
+													<li>TThe support of each candidate itemset is calculated, and only those above the 
+														minimum support threshold are retained as frequent itemsets</li>
+											</ul>
+										</li>
+										<li>
+											Generating association rules:
+											<ul>
+												<li>
+													Once the frequent itemsets are identified, the algorithm generates association rules with high 
+													confidence from these itemsets
+												</li>
+												<li>
+													The confidence of each rule is calculated, and only those with confidence above a minimum threshold 
+													are retained as high-confidence rules
+												</li>
+											</ul>
+										</li>
+									</ol>
+									<img src="images/apriori1.webp" width="450" height="200" style="margin:30px 10px">
+									<img src="images/apriori2.jpeg" width="550" height="300" style="margin:30px 50px"> 
+
+								 </p>
 							<h3>How is ARM used in this project?</h3>
-							<p>ARM is implemented on the textual data collected from <a href="https://newsapi.org/">Newsapi.org</a>
-							Corpus contains headlines of the news articles related to the keyword "Aluminium". Aim of this implementation
-							is to analyze which keywords are most used with Aluminium industry. This shall open doors for new hypothesises and research regarding demand and recycling.</p>
-
-							<h2>Data Preparation</h2>
-							Here is a snippet of transactional data that is used in ARM. Access the data <a href="https://github.com/vatshivam/furnace-maintenance-predictor/blob/main/data/transactions_3.csv">here</a>.
-							<img src="images/arm_data.jpg" alt="" width="500" height="300" style="margin:50px 50px"/>
+							<p align="justify">
+								ARM is implemented on the textual data collected from Newsapi.org corpus containing headlines of the news articles related 
+								to the keyword "fraudulent transaction detection" and " fraud transaction" such that there is enough data to perform ARM. 
+								Apart from that, ARM is also performed on a purchase itemset data <a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/datasets/purchase_data_exe.csv">Click Here</a> 
+								such that to get insight on itemsets which are frequently bought and any pertaining patterns/information it contains.
+								The textual data will explain which keywords are closely associated with our keywords 'fraud transactions' and 'fraudulent transaction detection'.
+							</p>
+							<h3>Data Preparation</h3>
+							<p align="justify">
+								Here is the snippet for both the dataset used in performing ARM. 
+								<ul>
+									<li>
+										<a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/Cleaned%20Dataset/cleaned_text_data.csv">Dataset 1</a>
+									</li>
+									<li>
+										<a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/datasets/purchase_data_exe.csv">Dataset 2</a>
+									</li>
+								</ul>
+								<h3>Dataset Before</h3>
+								<img src="images/text_data.jpeg" width="700" height="500" style="margin:30px 10px">
+								<img src="images/purchase_data.jpeg" width="350" height="400" style="margin:30px 50px">
+								<br>
+								<h3>Dataset After Transforming</h3>
+								<br>
+								Here the textual data is easy to interpret, for the purchase itemset transaction data column - product_category
+								is modified to have some textual values rather than numeric to perform ARM. For example Item number 501 changed to jackets.
+								<br>
+								Dataset is transformed in such a way where each transaction represents a set of items that are purchased, used, or observed together, and 
+								ARM aims to find patterns or relationships between these items. By analyzing this transactional data using ARM, itemsets that occur 
+								frequently together can be observed and association rules can be generated that describe the relationships between these itemsets.
+								<a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/transaction_data_collection.ipynb">Click Here</a> for the code.
+								<img src="images/dataset1.jpeg" width="700" height="500" style="margin:30px 10px">
+								<img src="images/dataset2.jpeg" width="350" height="400" style="margin:30px 50px">
+							</p>
 							<br>
+							<h3>Results</h3>
+							<p align="justify">
+								Frequency plot for textual data:<br>
+								Here from the graph, it is obvious that credit card, banks, payments, business, crypto are highly associated words
+								when it comes to fraudulent transactions.
+								<img src="images/Text_plot.jpeg" width="700" height="500" style="margin:30px 10px">
+								<br>
+								Frequency plot for purchase transaction data:<br>
+								Here from the graph, the most frequent itemset which is purchased is boots followed by goggles and gloves.<br>
+								<img src="images/purchase_plot.jpeg" width="700" height="500" style="margin:30px 10px">
+							</p>
+							<p align="justify">
+								<b>Support=.03, Confidence=.5, minlen=2 </b>generates the following visualization for the textual data:
+							<br>
+							<h5>Top 15 Rules by Confidence</h5><br>
+							Rule 12: {card,credit,secured}=> {review} support = 0.0384
+							confidence = 1
+							coverage = 0.0384
+							lift = 17.4
+							count = 40
+							order = 4
+							id = 12. This rule explains that credit card secured will lead to review and has a high lift which explains they are highly associated.
+							  
+							<iframe src="images/confidence15_text.html" title="confidence_top15" width="900" height="800"></iframe> 
 							
-							<h2>Code</h2>
-							<p>Here is the <a href = "https://github.com/vatshivam/furnace-maintenance-predictor/blob/main/arm.R">code</a> for ARM</p>
-
-							<h2>Results</h2>
-							<p>Setting the threshold support to 0.03 and confidence to 0.5 renders 8 association rules. Here is the visualization for the same:</p>
-							<iframe src="arm_plot_1.html" title="description" width="800" height="800"></iframe> 
+							<h5>Top 15 Rules by Lift</h5>
+							<iframe src="images/lift15_text.html" title="lift_top15" width="900" height="800"></iframe> 
+							<h5>Top 15 Rules by Support</h5>
+							<iframe src="images/support15_text.html" title="support_top15" width="900" height="800"></iframe> 
+							</p>
 							<br>
-							<p>Tweaking the support threshold to 0.025 generates 30 association rules that are represented below:</p>
-							<iframe src="plot_html.html" title="description" width="800" height="800"></iframe> 
+							<p align="justify">
+								<b>Support=.0005, Confidence=.03, minlen=2</b> generates the following visualization for the purchase transaction data:
 							<br>
-							<p>Even though the corpus is collected using the keyword "Aluminium" but ironically, the top 10 rules with highest lift does not contain the word "aluminium". This might reflect the fact that news headlines are succint.</p>
-
-							<h2>Conclusions</h2>
-							<p>The dataset collected for association rule mining is not tightly coupled with the problem statement. 
-								This technique in the project's context remains limited to exploration.
-								From the top association rules, we cannot deduce any meaningful relatio
-								nships/rules related to Aluminium. Some of the top assocaited words with 
-								Aluminium are: China, Global, Market, Billion, USD, Output.
+							<h5>Top 15 Rules by Confidence</h5><br>
+							Rule 13: {hiking gear} => {tents} support = 0.000607 confidence = 0.0366 coverage = 0.0166 lift = 2.08 count = 12 order = 2 id = 13
+							This rule explains that if hiking gear is bought then how is tents associated with it, will it be bought? from the information they have less 
+							confidence but lift>1 which suggest they are positively associated.<br>
+							<iframe src="images/confidence15_purchase.html" title="confidence_top15" width="900" height="800"></iframe> 
+							
+							<h5>Top 15 Rules by Lift</h5>
+							<iframe src="images/lift15_purchase.html" title="lift_top15" width="900" height="900"></iframe> 
+							<h5>Top 15 Rules by Support</h5>
+							<iframe src="images/support15_purchase.html" title="support_top15" width="900" height="800"></iframe> 
+							</p>
+							<p align="justify">
+								<h3>Conclusion</h3>
+								From the dataset collected to perfortm association rule mining, from the results we can say that
+								the textual data associated with fraudulent transaction are bank, credit card, crypto, business, digital, etc 
+								which does makes sense.
+								<br>
+								From the purchase itemset data, we can infer which itemsets appear frequently and which all items are highly associated with each other
+								and have the high probability of getting bought with some item. For example if customer buys hiking gear, they are likely to buy tents.
 							</p>
 						</div>
-						</div>
+						<br>
+						<br>
 					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li> -->
+									<!-- <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+									<li><a href="https://www.instagram.com/ansh_sach2208/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
+									<li><a href="https://github.com/anshsach2208" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
+									<!-- <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li> -->
+									<li><a href="mailto:anshsachdeva748@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+										<li><a href="https://www.linkedin.com/in/anshsachdeva98/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>CSCI 5622-073 - Machine Learning</li><li>Fraudulent Credit Card Transaction By Ansh Sachdeva</li>
+							</ul>
+						</div>
+					</footer>
+
 			</div>
 
 		<!-- Scripts -->
