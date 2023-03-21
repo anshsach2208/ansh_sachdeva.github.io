@@ -53,11 +53,69 @@
 						<div class="inner">
 							<h1>Naive Bayes</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<h2>Multinomial Naive Bayes</h2>
+							<p align="justify">
+								Multinomial Naive Bayes (MNB) is a probabilistic algorithm used for text classification. 
+								It is one of the simplest and most effective algorithms for this task. The algorithm is based on Bayes' theorem, 
+								which describes the probability of an event, based on prior knowledge of conditions that might be related to the event.
+								<br>
+								The MNB algorithm is trained using a set of labeled documents. Each document in the set is represented by a vector of word counts, where the count for
+ 								each word represents the number of times that word appears in the document. The training process involves estimating the probabilities of each word 
+								occurring in each class (i.e., category or label). This is done by counting the number of times each word appears in each class and normalizing by the 
+								total number of words in that class. This gives us the probability of each word occurring in each class, which is used to calculate the probability of a 
+								document belonging to a particular class.<br>
+								To make a prediction for a new document, the MNB algorithm calculates the probability of the document belonging to each class based on the word probabilities 
+								estimated during training. It then chooses the class with the highest probability as the predicted class for the document.
+								One of the key assumptions of the MNB algorithm is the independence of the features (i.e., words) given the class. This means that the occurrence of one word
+								in a document does not affect the probability of another word occurring in that same document.
+								<br>
+								<br>
+								<a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/">
+								<img src="images/naivebayes.webp" width="650" height="300" style="margin:30px 10px">
+								</a>
+								<a href="https://github.com/JonathanRadotski/multinomial_naivebayes">
+									<img src="images/naivebayes2.png" width="450" height="300" style="margin:30px 10px">
+								</a>
+								<br>
+								<br>
+							</p>
+								<h2>Smoothing in Naive Bayes</h2>
+								<p align="justify">
+									With a set of input features, Naive Bayes determines the likelihood of a class given in the input. 
+									In certain circumstances, a feature may not be present in the training data for a specific class, leading 
+									to a probability of zero. This can be problematic when attempting to make predictions because the sum of the 
+									probabilities for all features will equal zero, giving that class an overall probability of zero.
+									<br>
+									Smoothing is used to address this problem by adjusting the probability estimates for features that have 
+									zero counts in the training data. The idea is to add a small constant value (often called the smoothing 
+									parameter or Laplace smoothing parameter) to the count of each feature, which has the effect of shifting 
+									the probability estimates away from zero. This helps to avoid overfitting and makes the model more robust 
+									to unseen data.
+									<br>
+									<br>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/jSaU_iDB1Ds" 
+											frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+											gyroscope; picture-in-picture" allowfullscreen>
+									</iframe>
+								</p>
+								<br>
+								<br>
+								<h2>Bernoulli Naive Bayes</h2>
+								<p align="justify">
+									The primary characteristic of Bernoulli Naive Bayes is that only binary values—such as true or false, yes or no, 
+									success or failure, 0 or 1—are accepted for features. So, we prefer to use the Bernoulli Naive Bayes classifier 
+									when the feature values are binary.
+									In Bernoulli Naive Bayes, each input feature is assumed to have a binary probability distribution, where the probability 
+									of the feature being present is represented by a parameter called the feature probability. The model calculates the 
+									probability of each class given the input features using Bayes' theorem, which states that the probability of a 
+									a class label given the input features is proportional to the 
+									probability of the evidence given the class label, multiplied by the prior probability of  class labels.
+								</p>
+							   <br><br><a href="https://heena-sharma.medium.com/naive-bayes-in-machine-learning-684e38a96e8d">
+								<img src="images/naivebayes3.jpeg" width="450" height="200" style="margin:30px 10px">
+							</a>
 							
 						</div>
-						
-
-					
 					</div>
 
 				<!-- Footer -->
