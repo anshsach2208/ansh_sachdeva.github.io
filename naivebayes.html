@@ -114,7 +114,77 @@
 							   <br><br><a href="https://heena-sharma.medium.com/naive-bayes-in-machine-learning-684e38a96e8d">
 								<img src="images/naivebayes3.jpeg" width="450" height="200" style="margin:30px 10px">
 							</a>
-							
+							<h2>Code Explanation</h2>
+							<p align="justfiy">
+								The basic idea is to partition the dataset into two subsets: one for training the model and another for testing its accuracy,
+								 which is done using one of the libraries provided  <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">"from sklearn.model_selection import train_test_split"</a>. 
+								 The training set 
+								 is used to fit the model parameters, while the test set is used to evaluate the performance of the trained model on new, 
+								 unseen data. In our case due to the imbalanced dataset(where it had just 492 fraudulent cases) we will use sampling method in this case
+								 downsampling to make the majority and minority class label have same proportion. Here the split is done using a paramater <b>stratify</b>
+								 which basically returns train and test with same proportions of class labels 
+								 as the input dataset. Moreover the train and test is split in 70%-30% as describe in the parameter <b>test_size</b>
+								 Where <b>random_state</b> defines the random sampling of the train and test datasets and produces same results every time it is run.
+								 <br>
+								 <img src="images/train_test.jpeg" width="950" height="100" style="margin:30px 10px">
+								
+							</p>
+							<br>
+							<h2>Cleaned Data</h2>
+							<p align="justify">
+								<img src="images/naivebayesdata.jpeg" width="800" height="300" style="margin:30px 10px">
+							</p>
+							<br>
+							<h2>Training & Testing Data</h2>
+							<p align="justify">
+								<img src="images/naivebayes_features.jpeg" width="700" height="400" style="margin:30px 10px">
+								<br>
+								<img src="images/naivebayes_label.jpeg" width="500" height="300" style="margin:30px 10px">
+							</p>
+							<br>
+
+							<p align="justify">
+								Our problem statement is to train our model to identify the fraudulent transactions on the unseen data, a classification 
+								algorithm will identify and classify the transactions 
+								as fraudulent or non-fraudulent. Let's see this using a Naive Bayes Classifier.
+
+								After fitting the Naive Bayes model against our training data shown above, the ext step is to make prediction on unseen data 
+								which is testing data.
+
+								<h3>Confusion Matrix</h3>
+								<img src="images/nb_confusion.png" width="650" height="400" style="margin:30px 10px">
+								<br>
+								From the confusion matrix above, we get the idea of our True Positive Rate and True Negative Rate, Accuracy, Senstivity, Specificity.
+								To check if our model is performing well, there is cost associated to whether having a false negative case or false positive case is costly for us.
+								Which means predicting a fraud case as non-fraudulent (i.e false negative) or non-fraud as fraud (i.e false positive) is beneficial for us,
+								In this case we will want to decrease the false negative cases which in turn is costly for us when detecting on unseen data, as 
+								we will incur a financial loss due to the cases which were not detected as fraudulent.
+
+								The most common metrics to use for imbalanced dataset are:
+								<ul>
+								<li>F1 score</li>
+								<li>Precision</li>
+								<li>Recall</li>
+								<li>AUC score (AUC ROC)</li>
+								<li>Average precision score (AP)
+
+								</li></ul>
+								<br>	
+								<br>
+								Let's have a look at our performance metrics.<br>
+								<img src="images/nb_accuracy.jpeg" width="650" height="400" style="margin:30px 10px">
+								<br>
+								<img src="images/nb_roc.png" width="650" height="400" style="margin:30px 10px">	
+							</p>
+
+							<h2>Conclusion</h2>
+							<p align="justify">
+								From the performance metrics we can conclude that naive bayes did a great job in indentifying most of the 
+								fraudulent transactions 90 out of 110, although we can also test upsampling or feature importance to increase our recall score 
+								such that model is more accurate in predicting fraudlent transactions. Our Naive Bayes model gave an accuracy of 89%.
+								In case of fraudulent transactions recall is better favoured than precision because there is no harm in alerting a non-fraud
+								transaction as fraud, but there will be more loss if a fraud transactions is labelled as non-fraud.
+							</p>
 						</div>
 					</div>
 
