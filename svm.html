@@ -62,8 +62,7 @@
                                 data points in a high-dimensional space. In two dimensions, the MMH is simply a line that separates the two classes of points, while in higher dimensions, 
                                 it is a hyperplane that separates the two classes.
                                 If the data is not linearly separable, SVMs uses a technique called kernel methods to transform the data into a higher-dimensional space where it becomes 
-                                linearly separable.
-
+                                linearly separable.<br>
                                 <br>
                                 <h3> How does kernel work in SVM?</h3>
                                 In order to move the input data into a higher-dimensional space, where linear separability is more possible, the kernel function is applied. The decision boundary that divides the classes with the 
@@ -71,7 +70,7 @@
                                 <br>
                                 The inner product between two data points in the transformed feature space is computed by the kernel function, which is comparable to calculating how similar the two data points are. The linear kernel, 
                                 polynomial kernel, radial basis function (RBF) kernel, and sigmoid kernel are the most often utilized kernel functions.
-                                <br>
+                                <br><br>
                                 <h3>Why is calculating dot product is so essential while doing SVM?</h3>
                                 The ability to compute the similarity between two data points in a high-dimensional space without explicitly computing the coordinates of the data points in that space makes the dot 
                                 product essential to the use of the kernel in SVMs.
@@ -80,13 +79,44 @@
                                 The similarity between the two data points in the feature space is determined by the dot product. The more similar the two data points are in the feature space, the greater the dot product.
                                 Without directly calculating the coordinates of the data points in the feature space, the kernel function enables us to use the SVM algorithm. As a result, even when the explicit computation 
                                 of the coordinates in that space would be impractical, SVMs can be used with very high-dimensional feature spaces.
+
+                                <br><br>
                                 <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchgate.net%2Ffigure%2FAn-illustration-of-support-vector-machine-SVM-intuition_fig1_343397484&psig=AOvVaw0E-A6Z0gFMS9yPO7AI09fI&ust=1681866074771000&source=images&cd=vfe&ved=0CBIQjhxqFwoTCPD1jsOdsv4CFQAAAAAdAAAAABAD">
-                                    <img src="images/svm1.png" width="650" height="300" style="margin:30px 10px">
+                                    <img src="images/svm1.png" width="550" height="300" style="margin:30px 10px">
                                     </a>
-                                    <br>
+                                    
                                     <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchgate.net%2Ffigure%2FSupport-vector-machine-SVM-3_fig2_334365773&psig=AOvVaw0E-A6Z0gFMS9yPO7AI09fI&ust=1681866074771000&source=images&cd=vfe&ved=0CBIQjhxqFwoTCPD1jsOdsv4CFQAAAAAdAAAAABAI">
-                                        <img src="images/svm2.png" width="650" height="300" style="margin:30px 10px">
+                                        <img src="images/svm2.png" width="550" height="300" style="margin:30px 10px">
                                         </a>
+                                        <br>
+                                        <br>
+                               
+                                <h3>Radial Basis Function</h3>
+                                Due to its resemblance to the Gaussian distribution, RBF kernels are among the most extensively used kernels and the most versatile kind of kernelization. For two points X1 and X2, the RBF kernel function calculates 
+                                their similarity or how near they are to one another.
+                                where,<br>
+                                1. ‘σ’ is the variance and our hyperparameter<br>
+                                2. ||X₁ - X₂|| is the Euclidean (L₂-norm) Distance between two points X₁ and X₂
+                                <br>
+                                <br>
+                                <h3>Polynomial Function</h3>
+                                An SVM kernel known as a polynomial kernel maps the data into a higher-dimensional space using a polynomial function. This is done by taking the dot product of the polynomial function 
+                                in the new space and the original space's data points.
+                                The polynomial kernel is often used in SVM classification problems where the data is not linearly separable. By mapping the data into a higher-dimensional space, the polynomial kernel
+                                 can sometimes find a hyperplane that separates the classes.
+
+                                The polynomial kernel has a number of parameters that can be tuned to improve its performance, including the degree of the polynomial and the coefficient of the Polynomial
+                                <br>
+                                For degree d polynomials, the polynomial kernel is defined as:
+                                where c is a constant and X1 and X2 are vectors in the original space.
+                                <br>
+                                <br>
+                                <h3> Polynomial and Radial Basis Function Equations</h3>  
+                               <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fjournals.plos.org%2Fplosone%2Farticle%2Ffigures%3Fid%3D10.1371%2Fjournal.pone.0235885&psig=AOvVaw3hMsLaOmD9BLsXm935hSrM&ust=1681869826566000&source=images&cd=vfe&ved=0CBIQjhxqFwoTCOD9o8Crsv4CFQAAAAAdAAAAABAD">
+                                <center><img src="images/kernel.png" width="700" height="300" style="margin:30px 10px"></center>
+                                </a>  
+                                <br>
+                                <br>
 							</p>
 								<br>
 								<br>
