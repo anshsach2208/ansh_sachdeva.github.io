@@ -90,7 +90,45 @@
                                         </a>
                                         <br>
                                         <br>
-                               
+                               <h3>Polynomial Kernek for r=1 and d=2, a and b are 2D </h3>
+                                   <br>
+                                a is (a1, a2) and b is (b1, b2) [polynomial kernel= (aTb + r)^d] <br>
+                                Let r = 1 and let d = 2 <br>
+                                (aTb + 1)2 = (aTb +1)(aTb +1) = <br>
+                                (aTb)(aTb) + 1/2aTb + 1/2aTb + 1 = <br>
+                                (aTb)(aTb) + aTb + 1 =<br>
+                                (a1b1 + a2b2)(a1b1+a2b2) + (a1b1 + a2b2) + 1 =<br>
+                                a1^2b1^2 + 2a1a2b1b2 + a2^2b2^2 + a1b1 + a2b2 + 1<br>
+                                Now  let's see how to write dot product for it<br>
+                                [a1^2 , sqrt(2)a1a2, a2^2, a1, a2, 1] dot [b1^2 , sqrt(2)b1b2 , b2^2, b1, b2, 1]<br>
+                                <br>
+                                Now – let’s check the dot product we get directly from the kernel vs the dot product we
+                                get after the transformation.<br>
+                                <br>
+                                Let a = (3,2) and let b = (2,3)
+                                where r = 1 and d = 2 so that K(a,b) = (aTb + 1)^2
+                                If we plug in a and b directly we should get the dot product from the
+                            transformed space!
+                                <br>
+                                    ((3, 2) dot (2, 3) + 1)^2 = (12 + 1)^2 =(13)^2 = 169
+                            OK - what happens if we transform a and b first and then get the dot
+                            product in the transformed space. It should be the same that is it should be
+                            169. <br>
+
+                            Let r = 1 and let d = 2 <br>
+                            (ab + 1)^2 = a1^2b1^2 + 2a1a2b1b2 + a2^2b2^2 + a1b1 + a2b2 + 1 <br>
+                            and the dot product is: <br>
+                            [a1^2 , sqrt(2)a1a2, a2^2, a1, a2, 1] dot [b12 , sqrt(2)b1b2 , b2^2, b1, b2, 1] <br>
+                            Let a = (3,2) and let b = (2,3) <br>
+                            The transformation of a is <br>
+                            [a1^2 , sqrt(2)a1a2, a2^2, a1, a2, 1] --> [9, sqrt(2)(3)(2), 4, 3, 2, 1] <br>
+                            The transformation of b is <br>
+                            [b1^2 , sqrt(2)b1b2 , b2^2, b1, b2, 1/2] --> [4, sqrt(2)(2)(3), 9, 2, 3, 1] <br>
+                            Now – get the dot product<br>
+                            [9, sqrt(2)(3)(2), 4, 3, 2, 1] dot [4, sqrt(2)(2)(3), 9, 2, 3, 1]
+                            = 169
+<br><br>
+                               </h3>
                                 <h3>Radial Basis Function</h3>
                                 Due to its resemblance to the Gaussian distribution, RBF kernels are among the most extensively used kernels and the most versatile kind of kernelization. For two points X1 and X2, the RBF kernel function calculates 
                                 their similarity or how near they are to one another.
@@ -153,20 +191,19 @@
 							<p align="justify">
 								Our problem statement is to train our model to identify the fraudulent transactions on the unseen data, a classification 
 								algorithm will identify and classify the transactions 
-								as fraudulent or non-fraudulent. Let's see this using a Decision Tree Classifier.
+								as fraudulent or non-fraudulent. Let's see this using a Support Vector Machine Classifier.
 
-								After fitting the Decision Tree model against our training data shown above, the next step is to make prediction on unseen data 
+								After fitting the Support Vector Machine model against our training data shown above, the next step is to make prediction on unseen data 
 								which is testing data.
 
 								<h3>Confusion Matrix</h3>
-								<img src="images/dt_confusion.png" width="650" height="400" style="margin:30px 10px">
+								<img src="images/svm_cm.png" width="650" height="400" style="margin:30px 10px">
 								<br>
 								From the confusion matrix above, we get the idea of our True Positive Rate and True Negative Rate, Accuracy, Senstivity, Specificity.
 								To check if our model is performing well, there is cost associated to whether having a false negative case or false positive case is costly for us.
 								Which means predicting a fraud case as non-fraudulent (i.e false negative) or non-fraud as fraud (i.e false positive) is beneficial for us,
 								In this case we will want to decrease the false negative cases which in turn is costly for us when detecting on unseen data, as 
-								we will incur a financial loss due to the cases which were not detected as fraudulent. From the above confusion matrix, there are less
-                                false negatives cases than it was in our Naive Bayes Classifier, thus decision tree did a great job in identifying more true fraudulent cases.
+								we will incur a financial loss due to the cases which were not detected as fraudulent.
 
 								The most common metrics to use for imbalanced dataset are:
 								<ul>
@@ -180,40 +217,36 @@
 								<br>	
 								<br>
 								Let's have a look at our performance metrics.<br>
-								<img src="images/dt_accuracy.jpeg" width="650" height="400" style="margin:30px 10px">
+								<img src="images/svm_perf.png" width="650" height="400" style="margin:30px 10px">
 								<br>
-								<img src="images/dt_roc.png" width="650" height="400" style="margin:30px 10px">	
-							</p>
-                            <h2>Decision Tree Visualisation</h2>
-                            <p align="justify">
-                                Decision Tree on full dataset
+								
+                                <h3>Confusion Matrix for different kernels and c values</h3>
                                 <br>
-                                <embed src="images/decision_tree.pdf" type="application/pdf" width="100%" height="700px" 
-                                style="border:none;" frameborder="0" scrolling="no"
-                                 title="Decision Tree PDF Document">
-<br><br>
-                                 Decision Tree on downsampled dataset
-                                 <br>
-                                 <embed src="images/decision_tree2.pdf" type="application/pdf" width="100%" height="700px" 
-                                 style="border:none;" frameborder="0" scrolling="no"
-                                  title="Decision Tree PDF Document"> <br><br>
+                                
+                                Confusion Matrix for C=0.1 and kernel=rbf
+                                <br>
+								<img src="images/svm_accuracy.png" width="650" height="400" style="margin:30px 10px">
+                                <br>
+                                <br>
+                                Confusion Matrix for C=10 and kernel=linear
+                                <br>
+                                <img src="images/svm_fraud.png" width="650" height="400" style="margin:30px 10px">
+                                <br>
+                                <br>
+                                From the above SVM models for different kernels and different c value we can say that for value c=10 and kernel=linear 
+                                we have the best fraud accuracy which is 91.2% and overall accuracy of 96.6%
 
-                                  Decision Tree on most important features
-                                 <br>
-                                 <embed src="images/decision_tree3.pdf" type="application/pdf" width="100%" height="700px" 
-                                 style="border:none;" frameborder="0" scrolling="no"
-                                  title="Decision Tree PDF Document">
+                                Though the best overall accuracy was achieved by the kernel=rbf with c value=0.1 but our goal is to have maximum accuracy against fraudulent
+                                transactions where it performed poorly with 78% accuracy. So we would probably chose the linear kernel model with c=10
 
-
-                            </p>
+							</p>
+                     
                             <h3>Code</h3>
                             <p align="justify">
                                 <ul>  
                                     
                            <li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/classification.ipynb">
-                                       Classification - Naive Bayes and Decision Trees</a></li>
-                            <li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/decision_trees.ipynb">
-                                    Decision Trees Visualisation</a></li> 
+                                       Classification - Support Vector Machine</a></li>
                                     <li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/datasets/creditcard-modified.csv">
                                         Dataset
                                     </a></li>
@@ -223,11 +256,9 @@
 
 							<h2>Conclusion</h2>
 							<p align="justify">
-								From the performance metrics we can conclude that Decision Trees did a great job than Naive Bayes in indentifying most of the 
-								fraudulent transactions 92 out of 110, although we can also test against upsampled dataset or by doing feature importance to increase our recall score 
-								such that model is more accurate in predicting fraudlent transactions. Our Decision Trees model gave similar accuracy of 89%.
-								Though decision tree had a better recall score for fraudulent transactions. In case of fraudulent transactions recall is better favoured than precision because there is no harm in alerting a non-fraud
-								transaction as fraud, but there will be more loss if a fraud transactions is labelled as non-fraud.
+								From the performance metrics we can conclude that SVM did a great job in indentifying most of the 
+								fraudulent transactions 135 out of 148. Moreover it has a better recall, in case of fraudulent transactions recall is better favoured than precision because there is no harm in alerting a non-fraud transaction as fraud, 
+                                but there will be more loss if a fraud transactions is labelled as non-fraud
 							</p>
 						</div>
 					</div>
