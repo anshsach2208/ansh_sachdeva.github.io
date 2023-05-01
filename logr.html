@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Introduction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" />Fradulent Credit Card Transactions</span><span class="title"></span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="introduction.html">Introduction</a></li>
+							<li><a href="data_preparation.html">Data Preparation</a></li>
+							<li><a href="EDA.html">Exploratory Data Analysis</a></li>
+							<li><a href="model_exp.html">Model Explanation</a></li>
+							<li><a href="conclusion.html">Learning and Outcomes</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Linear Regression</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<h2>Overview</h2>
+							<p align="justify">
+                                A statistical approach to simulating the relationship between a dependent variable and one or more independent variables 
+                                is what referred to as linear regression. It presumes that the dependent variable and the independent variable have a 
+                                linear connection, meaning that a change in the independent variable or variables will result in a change in the dependent 
+                                variable that is linear.
+                                <br>
+                                The linear regression model takes the form of a straight line equation:
+                                <br>
+                                y = β0 + β1x1 + β2x2 + ... + βnxn + ε
+                                <br>
+                                where y is the dependent variable, x1, x2,..., and xn are the independent variables, 0, 1, 2,..., and n are the coefficients,
+                                 and is the error term. The coefficients, while leaving all other variables constant, describe the change in the dependent 
+                                 variable for a one-unit change in the corresponding independent variable.
+							</p>
+                            <br>
+                            <p align="justify">
+                                In order to minimize the sum of the squared differences between the predicted values and the actual values of the dependent 
+                                variable, linear regression seeks to estimate the values of the coefficients. The least squares regression approach is often 
+                                used to do this.
+
+                                The assumption of a linear relationship between the dependent variable and the independent variable(s) is one of the limitations of linear regression. 
+                                The model might not accurately depict the relationship between the variables if this supposition is not true. Additionally, outliers can significantly 
+                                affect the estimated coefficients and the predicted values because linear regression is sensitive to them.
+                            </p>
+                            <br>
+                            <br>
+                            <img src="images/linear_regression.png" width="800" height="500" style="margin:30px 10px">
+                            <br>
+                            <br>
+                            <p align="justify">
+                                As this is a classification problem, linear regression won't be the solution to our problem.
+                                Infact we will use Logistic Regression to classify fraudulent transactions
+                            </p>
+							<br>
+							<h2>Cleaned Data</h2>
+							<p align="justify">
+								<img src="images/naivebayesdata.jpeg" width="800" height="300" style="margin:30px 10px">
+							</p>
+							<br>
+							<h2>Training & Testing Data</h2>
+							<p align="justify">
+								<img src="images/naivebayes_features.jpeg" width="700" height="400" style="margin:30px 10px">
+								<br>
+								<img src="images/naivebayes_label.jpeg" width="500" height="300" style="margin:30px 10px">
+							</p>
+							<br>
+
+							<p align="justify">
+								Our problem statement is to train our model to identify the fraudulent transactions on the unseen data, a classification 
+								algorithm will identify and classify the transactions 
+								as fraudulent or non-fraudulent. Let's see this using a Logistic Regression Classifier.
+
+								After fitting the Logistic Regression model against our training data shown above, the ext step is to make prediction on unseen data 
+								which is testing data.
+
+								<h3>Confusion Matrix</h3>
+								<img src="images/lr.png" width="650" height="400" style="margin:30px 10px">
+								<br>
+								From the confusion matrix above, we get the idea of our True Positive Rate and True Negative Rate, Accuracy, Senstivity, Specificity.
+								To check if our model is performing well, there is cost associated to whether having a false negative case or false positive case is costly for us.
+								Which means predicting a fraud case as non-fraudulent (i.e false negative) or non-fraud as fraud (i.e false positive) is beneficial for us,
+								In this case we will want to decrease the false negative cases which in turn is costly for us when detecting on unseen data, as 
+								we will incur a financial loss due to the cases which were not detected as fraudulent.
+
+								The most common metrics to use for imbalanced dataset are:
+								<ul>
+								<li>F1 score</li>
+								<li>Precision</li>
+								<li>Recall</li>
+								<li>AUC score (AUC ROC)</li>
+								<li>Average precision score (AP)
+
+								</li></ul>
+								<br>	
+								<br>
+								Let's have a look at our performance metrics.<br>
+								<img src="images/lr_acc.jpeg" width="650" height="400" style="margin:30px 10px">
+                                <br><br>
+                                
+                                <img src="images/lr_plot.png" width="650" height="400" style="margin:30px 10px">
+								<br>
+								
+							</p>
+							<br>
+							
+								<p align="justify">
+							<h2>Code</h2>
+							<li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/classification.ipynb">
+								
+								Classification - Logistic Regression </a></li>
+								<li><a href="https://github.com/anshsach2208/fraudulent_transactions/blob/main/datasets/creditcard-modified.csv">
+									Dataset
+								</a></li></p>
+							<h2>Conclusion</h2>
+							<p align="justify">
+								From the performance metrics we can conclude that naive bayes did a great job in indentifying most of the 
+								fraudulent transactions 133 out of 148, although we can also test upsampling or feature importance to increase our recall score 
+								such that model is more accurate in predicting fraudlent transactions. Our Logistic Regression model gave an accuracy of 97%.
+								In case of fraudulent transactions recall is better favoured than precision because there is no harm in alerting a non-fraud
+								transaction as fraud, but there will be more loss if a fraud transactions is labelled as non-fraud.
+							</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<!-- <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li> -->
+									<!-- <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+									<li><a href="https://www.instagram.com/ansh_sach2208/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
+									<li><a href="https://github.com/anshsach2208" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
+									<!-- <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li> -->
+									<li><a href="mailto:anshsachdeva748@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+										<li><a href="https://www.linkedin.com/in/anshsachdeva98/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>CSCI 5622-073 - Machine Learning</li><li>Fraudulent Credit Card Transaction By Ansh Sachdeva</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
